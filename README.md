@@ -1,4 +1,4 @@
-# Katas
+# Katas [![Build Status][BS img]][Build Status]
 
 **TODO: Add description**
 
@@ -18,3 +18,5 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
           [applications: [:katas]]
         end
 
+[Build Status]: https://travis-ci.org/sponomarev/elixir_katas
+[BS img]: https://travis-ci.org/sponomarev/elixir_katas.svg
