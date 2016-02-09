@@ -3,48 +3,48 @@ defmodule Exercism.SublistTest do
 
   alias Exercism.Sublist, as: Sublist
 
-  test "empty equals empty" do
+  test "#is_sublist: empty equals empty" do
     assert Sublist.is_sublist([], []) == :sublist
   end
 
-  test "empty is a sublist of anything" do
+  test "#is_sublist: empty is a sublist of anything" do
     assert Sublist.is_sublist([], [nil]) == :sublist
   end
 
-  test "1 is not 2" do
+  test "#is_sublist: 1 is not 2" do
     assert Sublist.is_sublist([1], [2]) == :unequal
   end
 
-  test "comparing massive equal lists" do
+  test "#is_sublist: comparing massive equal lists" do
     l = Enum.to_list(1..1_000_000)
     assert Sublist.is_sublist(l, l) == :sublist
   end
 
-  test "sublist is longer then list" do
+  test "#is_sublist: sublist is longer then list" do
     assert Sublist.is_sublist([1,2,3,4,5],[1,2,3]) == :unequal
   end
 
-  test "sublist at start" do
+  test "#is_sublist: sublist at start" do
     assert Sublist.is_sublist([1,2,3],[1,2,3,4,5]) == :sublist
   end
 
-  test "sublist in middle" do
+  test "#is_sublist: sublist in middle" do
     assert Sublist.is_sublist([4,3,2],[5,4,3,2,1]) == :sublist
   end
 
-  test "sublist at end" do
+  test "#is_sublist: sublist at end" do
     assert Sublist.is_sublist([3,4,5],[1,2,3,4,5]) == :sublist
   end
 
-  test "partially matching sublist at start" do
+  test "#is_sublist: partially matching sublist at start" do
     assert Sublist.is_sublist([1,1,2], [1,1,1,2]) == :sublist
   end
 
-  test "sublist early in huge list" do
+  test "#is_sublist: sublist early in huge list" do
     assert Sublist.is_sublist([3,4,5], Enum.to_list(1..1_000_000)) == :sublist
   end
 
-  test "huge sublist not in huge list" do
+  test "#is_sublist: huge sublist not in huge list" do
     assert Sublist.is_sublist(Enum.to_list(10..1_000_001),
                            Enum.to_list(1..1_000_000))
            == :unequal
